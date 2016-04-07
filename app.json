@@ -1,0 +1,6 @@
+{
+    "name": "CadalysDataArchive",
+    "description": "Cadalys Data Archive",
+    "repository": "https://github.com/Cadalys/CadalysDataArchive",
+    "addons": ["heroku-postgresql","herokuconnect"]
+}

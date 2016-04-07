@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  		<title>Cadalys</title>
+  		<link href="css/bootstrap.min.css" rel="stylesheet">
+  		<link href="css/styles.css" rel="stylesheet">
+  		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="navbar navbar-default navbar-static-top" role="navigation">
+			<div class="container">
+			    <div class="navbar-header">
+			        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			        <a class="navbar-brand" href="index.html"><img class="img_logo" src="images/logo.png" /> Cadalys Data Archive</a> </div>
+			    <div class="navbar-collapse collapse">
+			    <ul class="nav navbar-nav">
+			        <li><a href="walkthrough.html">Walkthrough</a></li>
+			        <li><a href="architecture.html">Architecture</a></li>
+			        <li><a href="setup.html">Setup</a></li>
+			    </ul>
+			    <ul class="nav navbar-nav navbar-right">
+			        <li><a target="_blank" href="https://github.com/MariyaEfimova/MariyaEfimova.github.io">Project on GitHub</a></li>
+			    </ul>
+			    </div>
+			</div>
+		</div>
+		<div class="jumbotron">
+			<div class="container center">
+			  	<p class="img_text">Cadalys Data Archive&#8482;</p>
+			  	<a href="#" class="btnDeploy"><span>Deploy to Heroku</span></a>
+		  	</div>
+		  </div>
+		</div>
+		<div class="content_desc">
+			<div class="container center">
+				<img src="images/Salesforce.png" />
+				<div class="description">
+					<p>Cadalys Data Archive&#8482; is a powerful data archiving application enabling enterprises to archive older unused data out of Salesforce and into Heroku where it can be viewed read-only.</p>
+					<p>The solution is built on Salesforce and Heroku platforms. The UI is implemented on the Salesforce side, and provides robust and customizable archiving rules for standard and custom objects including attachments. Administrators can specify the child records that are automatically archived with their parents. Archived Salesforce data are retained in a Heroku Postgres SQL database. Heroku Connect is used for bi-directional synchronization between Salesforce and Heroku, and Lightning Connect displays the archived data in the Salesforce UI. A Salesforce widget enables users to search archived data from within Salesforce, and is implemented using the postgreSQL full text search engine.</p>
+					<a href="#" class="btnDeploy btnBlue"><span>Deploy to Heroku</span></a>
+				</div>
+			</div>
+		</div>
+		<div class="key_features">
+			<div class="container center">
+				<div class="row">
+					<div>
+						<div class="feature col-sm-4 col-xs-12">
+							<img src="images/update.png" />
+							<p class="key_title">Optimize Storage and Improve Report Performance</p>
+							<p class="key_text">by archiving old and unused data out of Salesforce and into Heroku.</p>
+						</div>
+						<div class="feature col-sm-4 col-xs-12">
+							<img src="images/setup.png" />
+							<p class="key_title">Set Up Flexible Archiving Rules</p>
+							<p class="key_text">using advanced filter logic for standard objects, custom objects including attachments.</p>
+						</div>
+						<div class="feature col-sm-4 col-xs-12">
+							<img src="images/search.png" />
+							<p class="key_title">Set Criteria for Child Records</p>
+							<p class="key_text">to prevent orphaned data and to retain all information about archived records.</p>
+						</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div>
+						<div class="feature col-xs-12 col-sm-6">
+							<img src="images/zoom.png" />
+							<p class="key_title">View and Search for Archived Records</p>
+							<p class="key_text">in Salesforce using specialized widgets.</p>
+						</div>
+						<div class="feature col-xs-12 col-sm-6">
+							<img src="images/unarchive.png" />
+							<p class="key_title">Unarchive Records</p>
+							<p class="key_text">if needed back in Salesforce for editing or reporting.</p>
+						</div>
+						<div style="clear:both;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="demo_video">
+			<div class="container center">
+				<p>View demo</p>
+				<!--<video src="https://youtu.be/_bVCz2LnrBo" width="780" height="420" preload></video>-->
+				<iframe width="780" height="420" src="https://www.youtube.com/embed/_bVCz2LnrBo" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="container">
+				<p>© 2016 Cadalys Data Archive</p>
+			</div>
+		</div>
+	</body>
+</html>

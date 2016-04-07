@@ -1,0 +1,48 @@
+buildscript {
+    ext {
+        springBootVersion = '1.3.1.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'chas-dev'
+    version = '0.0.1-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+    maven { url "http://dl.bintray.com/dmitry-kalachov/maven" }
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.postgresql:postgresql')
+    compile 'org.apache.ddlutils:ddlutils:1.1.2-patched'
+    compile 'org.apache.commons:commons-collections4:4.1'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.9'
+}
+
+
+task stage {
+    dependsOn build
+}

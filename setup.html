@@ -7,15 +7,22 @@
   		<title>Cadalys</title>
   		<link href="css/bootstrap.min.css" rel="stylesheet">
   		<link href="css/styles.css" rel="stylesheet">
-  		<script src="js/jquery.js"></script>
+  		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script src="deployBtn.js"></script>
+		<script>
+			$(document).ready( function(){
+	            var deployHref = window.deployBtnLocation;
+	            $(".btnDeploy").attr("href",deployHref);
+	        });
+		</script>
 	</head>
 	<body>
 		<div class="navbar navbar-default navbar-static-top" role="navigation">
 			<div class="container">
 			    <div class="navbar-header">
 			        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-			        <a class="navbar-brand" href="index.html"><img class="img_logo" src="images/logo.png" /> Cadalys Data Archive</a> </div>
+			        <a class="navbar-brand" href="index.html"><img class="img_logo" src="images/logo.png" /></a> </div>
 			    <div class="navbar-collapse collapse">
 			    <ul class="nav navbar-nav">
 			        <li><a href="walkthrough.html">Walkthrough</a></li>
@@ -31,18 +38,13 @@
 		<div class="jumbotron">
 			<div class="container center">
 			  	<p class="img_text">Cadalys Data Archive&#8482;</p>
-			  	<a class="btnDeploy" href="https://heroku.com/deploy?template=https://github.com/Cadalys/CadalysDataArchive"><span>Deploy to Heroku</span></a>
+			  	<a href="#" class="btnDeploy"><span>Deploy to Heroku</span></a>
 		  	</div>
 		  </div>
 		</div>
 		<div class="content_desc">
 			<div class="container center">
-
-			</div>
-		</div>
-		<div class="demo_video">
-			<div class="container center">
-
+				
 			</div>
 		</div>
 		<div class="footer">

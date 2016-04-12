@@ -92,14 +92,12 @@
 				font-size:14px;
 			}
 			.navbar-brand{
-				position:relative;
-				padding-left:41px;
 				margin-left:15px;
 			}
 			.img_logo{
-				position:absolute;
-				left:0px;
-				top:5px;
+				height: 34px;
+			    width: auto;
+			    margin-top: -7px;
 			}
 			.navbar-default .navbar-nav>li>a{
 				color:#333;

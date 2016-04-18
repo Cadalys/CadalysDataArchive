@@ -16,6 +16,39 @@
 	            $(".btnDeploy").attr("href",deployHref);
 	        });
 		</script>
+		<style>
+			h1.title{
+				text-align:left;
+				font-size: 32px;
+			    font-weight: 400;
+			    margin-top:-20px;
+			}
+			.content_desc img{
+				margin-bottom: 15px;
+    			margin-top: 10px;
+			}
+			.description{
+				max-width:100%;
+			}
+			.platform_title{
+				font-weight: bold;
+				font-size: 18px;
+			}
+			.platform_title img{
+				width:90px;
+				height:auto;
+			}
+			h2.title{
+				text-align: left;
+			    font-size: 20px;
+			    font-weight: 400;
+			    margin-bottom:-15px;
+			    color:#2e74cf;
+			}
+			.titleMarg{
+				padding-top:15px;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="navbar navbar-default navbar-static-top" role="navigation">
@@ -43,8 +76,21 @@
 		  </div>
 		</div>
 		<div class="content_desc">
-			<div class="container center">
-				
+			<div class="container">
+				<h1 class="title">Setup</h1>
+				<div class="description">
+					<p>Cadalys Data Archive&#8482; is a powerful application with a number of tools providing flexible and customizable archiving process.</p>
+					<p>To setup the application please follow the instructions below or contact Cadalys to help you to install the solution.</p>
+				</div>
+				<h2 class="title">Install Heroku app</h1>
+				<div class="description">
+					<p>1. Deploy the app by clicking the Deploy Button</p>
+				</div>
+				<img style="width:147px;" src="images/button.png" />
+				<div class="description titleMarg">
+					<p>2. Create the app on Heroku account. Let’s say <i>CadalysDataArchive</i></p>
+				</div>
+				<img src="images/createApp.png" />
 			</div>
 		</div>
 		<div class="footer">

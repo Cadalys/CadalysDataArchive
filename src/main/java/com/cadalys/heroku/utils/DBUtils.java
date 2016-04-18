@@ -39,30 +39,36 @@ public class DBUtils {
      */
     public static String getArchiveTriggerStatement(String schema, String table) {
         return String.format("CREATE OR REPLACE FUNCTION archive_procedure_%1$s()\n" +
-                "    RETURNS trigger AS\n" +
-                "            $BODY$\n" +
-                "    BEGIN\n" +
-                "    EXECUTE 'INSERT INTO %2$s.a__%1$s(' || ARRAY_TO_STRING(ARRAY(SELECT COLUMN_NAME :: VARCHAR(50)\n" +
-                "        FROM INFORMATION_SCHEMA.COLUMNS\n" +
-                "        WHERE\n" +
-                "        TABLE_NAME = '%1$s' AND\n" +
-                "        table_schema = '%2$s'\n" +
-                "        ORDER BY ORDINAL_POSITION\n" +
-                "        ), ', ') || ')' || ' SELECT $1.' ||\n" +
-                "        ARRAY_TO_STRING(ARRAY(SELECT COLUMN_NAME :: VARCHAR(50)\n" +
-                "        FROM INFORMATION_SCHEMA.COLUMNS\n" +
-                "        WHERE\n" +
-                "        TABLE_NAME = '%1$s' AND table_schema = '%2$s'\n" +
-                "        ORDER BY ORDINAL_POSITION\n" +
-                "        ), ', $1.')\n" +
-                "        USING OLD;" +
-                "    RETURN OLD;\n" +
-                "    END;\n" +
-                "    $BODY$\n" +
-                "    LANGUAGE plpgsql;\n" +
-                "    DROP TRIGGER IF EXISTS a__%1$s_delete ON %2$s.%1$s;\n" +
-                "    CREATE TRIGGER a__%1$s_delete BEFORE DELETE ON %2$s.%1$s FOR EACH ROW EXECUTE PROCEDURE " +
-                "archive_procedure_%1$s();\n", table, schema);
+                "                    RETURNS trigger AS\n" +
+                "                            $BODY$\n" +
+                "                    BEGIN\n" +
+                "                    IF EXISTS(SELECT * FROM %2$s.cadarch__archive_plan__c WHERE " +
+                "cadarch__plan_type__c = 'Archive' and LOWER(cadarch__type__c) = LOWER('%1$s') and " +
+                "cadarch__sourceid__c=OLD.sfid ) THEN\n" +
+                "                    EXECUTE 'INSERT INTO %2$s.a__%1$s(' || ARRAY_TO_STRING(ARRAY(SELECT COLUMN_NAME " +
+                ":: VARCHAR(50)\n" +
+                "                        FROM INFORMATION_SCHEMA.COLUMNS\n" +
+                "                        WHERE\n" +
+                "                        TABLE_NAME = '%1$s' AND\n" +
+                "                        table_schema = '%2$s'\n" +
+                "                        ORDER BY ORDINAL_POSITION\n" +
+                "                        ), ', ') || ')' || ' SELECT $1.' ||\n" +
+                "                        ARRAY_TO_STRING(ARRAY(SELECT COLUMN_NAME :: VARCHAR(50)\n" +
+                "                        FROM INFORMATION_SCHEMA.COLUMNS\n" +
+                "                        WHERE\n" +
+                "                        TABLE_NAME = '%1$s' AND table_schema = '%2$s'\n" +
+                "                        ORDER BY ORDINAL_POSITION\n" +
+                "                        ), ', $1.')\n" +
+                "                        USING OLD;\n" +
+                "                    END IF;\n" +
+                "                    RETURN OLD;\n" +
+                "                    END;\n" +
+                "                    $BODY$\n" +
+                "                    LANGUAGE plpgsql;\n" +
+                "                    DROP TRIGGER IF EXISTS a__%1$s_delete ON %2$s.%1$s;\n" +
+                "                    CREATE TRIGGER a__%1$s_delete BEFORE DELETE ON %2$s.%1$s FOR EACH ROW EXECUTE " +
+                "PROCEDURE\n" +
+                "                archive_procedure_%1$s();", table, schema);
 
     }
 

@@ -93,7 +93,7 @@
 				<div class="description">
 					<p>1. Deploy the app by clicking the Deploy Button</p>
 				</div>
-				<img style="width:147px;" src="images/button.png" />
+				<img style="max-width:100%;" src="images/button.png" />
 				<div class="description titleMarg">
 					<p>2. Create the app on Heroku account. Let’s say <i>CadalysDataArchive</i></p>
 				</div>
@@ -153,7 +153,7 @@
 					</p>
 				</div>
 				<div class="description titleMarg">
-					<p>2.4 Standard Relationships custom setting is used to save the exceptional relationships between Master and Detail standard objects.</p>
+					<p>2.4 Standard Relationships custom setting is used to save the exceptional relationships between Master and Detail standard objects. Fill this setting if you want to have additional child objects in the Archiving Rule page.</p>
 				</div>
 				<img style="max-width:100%;" src="images/install25.png" />
 				<div class="description titleMarg">
@@ -242,13 +242,7 @@
 				<img style="max-width:100%;" src="images/configure9.png" />
 				<div class="description titleMarg">
 					<p>Create the Unarchive button with the parameters shown below.<br/>
-					<u>>>Download Java Script<<</u> (<br/>
-					var sfId = window.sfdcPage.getEntityId().split('/');<br/>
-					var recId = sfId[sfId.length-1];<br/>
-					{!REQUIRESCRIPT("/soap/ajax/35.0/connection.js")}<br/>
-					{!REQUIRESCRIPT("/soap/ajax/35.0/apex.js")}<br/>
-					var myvar = sforce.apex.execute("cadarch.UnarchivePlanning","unarchive",{sourceId:recId});<br/>
-					window.alert(myvar); 
+					<a href="#">>>Download Java Script<<</a>
 					</p>
 				</div>
 				<img style="max-width:100%;" src="images/configure10.png" />

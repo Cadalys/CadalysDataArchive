@@ -82,7 +82,7 @@
 					<p>Cadalys Data Archive&#8482; is a powerful application with a number of tools providing flexible and customizable archiving process.</p>
 					<p>To setup the application please follow the instructions below or contact Cadalys to help you to install the solution.</p>
 				</div>
-				<h2 class="title">Install Heroku app</h1>
+				<h2 class="title">Install Heroku app</h2>
 				<div class="description">
 					<p>1. Deploy the app by clicking the Deploy Button</p>
 				</div>
@@ -90,7 +90,189 @@
 				<div class="description titleMarg">
 					<p>2. Create the app on Heroku account. Let’s say <i>CadalysDataArchive</i></p>
 				</div>
-				<img src="images/createApp.png" />
+				<img style="max-width:100%;" src="images/createApp.png" />
+				<div class="description titleMarg">
+					<p>3. After the app has been deployed, you can manage it in the Heroku Dashboard. For this, click on Manage App.</p>
+				</div>
+				<img style="max-width:100%;" src="images/free.png" />
+				<div class="description titleMarg">
+					<p>4. Click on Heroku Connect to setup connection with your Salesforce org.</p>
+				</div>
+				<img style="max-width:100%;" src="images/heroku1.png" />
+				<div class="description titleMarg">
+					<p>And press the Setup Connection button</p>
+				</div>
+				<img style="max-width:100%;" src="images/heroku2.png" />
+				<div class="description titleMarg">
+					<p>5. The Heroku Connect Provision Connection screen appears </p>
+				</div>
+				<img style="max-width:100%;" src="images/setup5.png" />
+				<div class="description titleMarg">
+					<p>6. Click Next and then click Authorize.</p>
+				</div>
+				<img style="max-width:100%;" src="images/setup6.png" />
+				<div class="description titleMarg">
+					<p>7. Authorize Heroku Connect to access your Salesforce org. If asked, log in to Salesforce.</p>
+				</div>
+				<img style="max-width:100%;" src="images/setup7.png" />
+				<h2 class="title">Install Salesforce package</h2>
+				<div class="description">
+					<p>1. Install the SF package by clicking the button</p>
+				</div>
+				<img style="max-width:100%;" src="images/install1.png" />
+				<img style="max-width:100%;" src="images/install11.png" />
+				<div class="description titleMarg">
+					<p>2. Fill all necessary custom settings on the Salesforce side Please fill the custom settings manually or use the script >>>Download script<<<.</p>
+					<p><i><xmp>Script</xmp></i></p>
+					<p><i><xmp>List<cadarch__Heroku_Connect_Setting__c> herokuSettings = new List<cadarch__Heroku_Connect_Setting__c> ();</xmp></i>
+					</p>
+					<p><i><xmp>herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'APP_NAME', cadarch__Text_Value__c = 'chas-test'));</xmp></i>
+					</p>
+					<p><i><xmp>herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'AUTH_TOKEN', cadarch__Text_Value__c = '86299d86-4ec4-4e03-ac6f-5f43191b7f8e'));</xmp></i></p>
+					<p><i><xmp>herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'HEROKU_API_ENDPOINT', cadarch__Text_Value__c = 'https://api.heroku.com/'));</xmp></i></p>
+					<p><i><xmp>herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'HEROKU_CONNECT_ENDPOINT', cadarch__Text_Value__c = 'https://connect.heroku.com/api/v3'));</xmp></i></p>
+					<p><i><xmp>herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'SERVICE_TIMEOUT', cadarch__Integer_Value__c = 120000));</xmp></i></p>
+					<p><i><xmp>List<cadarch__Archiving_Setting__c> archivingSettings = new List<cadarch__Archiving_Setting__c> ();</xmp></i></p>
+				</div>
+				<div class="description" style="padding-top:5px;">
+					<p><i><xmp>archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'BATCH_SIZE', cadarch__Integer_Value__c = 200));</xmp></i></p>
+					<p><i><xmp>archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'MAX_LOG_ENTRIES', cadarch__Integer_Value__c = 10000));</xmp></i></p>
+					<p><i><xmp>archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SCHEDULER_CRON', cadarch__Text_Value__c = '0 1 * * * *'));</xmp></i></p>
+					<p><i><xmp>archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SERVICE_ENDPOINT', cadarch__Text_Value__c = 'https://chas-test.herokuapp.com/'));</xmp></i></p>
+					<p><i><xmp>archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SERVICE_N_RETRIES', cadarch__Integer_Value__c = 2));</xmp></i></p>
+					<p><i><xmp>archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SERVICE_PASSWORD', cadarch__Text_Value__c = 'demopass'));</xmp></i></p>
+					<p><i><xmp>archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SERVICE_TIMEOUT', cadarch__Integer_Value__c = 120000));</xmp></i></p>
+					<p><i><xmp>archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SERVICE_USER', cadarch__Text_Value__c = 'archive.service@cadalys.demo'));</xmp></i></p>
+				</div>
+				<div class="description" style="padding-top:5px;">
+					<p><i><xmp>insert herokuSettings;</xmp></i></p>
+					<p><i><xmp>insert archivingSettings;</xmp></i></p>
+				</div>
+				<div class="description titleMarg">
+					<p>2.1 Custom Setting: <b>Archiving Setting</b></p>
+				</div>
+				<img style="max-width:100%;" src="images/install21.png" />
+				<img style="max-width:100%;" src="images/install22.png" />
+				<div class="description titleMarg">
+					<p>2.2 Custom Setting: <b>Heroku Connect Setting</b></p>
+				</div>
+				<img style="max-width:100%;" src="images/install23.png" />
+				<img style="max-width:100%;" src="images/install24.png" />
+				<div class="description titleMarg">
+					<p>2.3 Custom Setting: Heroku Connect Setting.AUTH_TOKEN</p>
+				</div>
+				<div class="description titleMarg">
+					<p>This setting is used to provide possibility to create Heroku mapping for Archived Objects automatically.<br/>
+					In order to use this feature you need to install <a href="https://toolbelt.heroku.com/">Heroku toolbelt</a>.<br/> 
+					Get <a href="https://devcenter.heroku.com/articles/authentication">API Token</a> for your Heroku instance.<br/>
+					Enter your token in the <a href="https://na22.salesforce.com/a0E1500000R2uYr?setupid=CustomSettings">AUTH_TOKEN</a> setting.
+					</p>
+				</div>
+				<div class="description titleMarg">
+					<p>2.4 Standard Relationships custom setting is used to save the exceptional relationships between Master and Detail standard objects.</p>
+				</div>
+				<img style="max-width:100%;" src="images/install25.png" />
+				<div class="description titleMarg">
+					<p>3. Fill Remote Site Details</p>
+				</div>
+				<div class="description" style="padding-top:0;">
+					<p>3.1 Create new Remote Site Settings for Heroku services</p>
+				</div>
+				<img style="max-width:100%;" src="images/install31.png" />
+				<div class="description titleMarg">
+					<p>3.2 Create new Remote Site Settings for Metadata Api<br/>
+						Remote Site URL: <xmp style="display:inline;margin:0;">https://c.<instance number>.visual.force.com,</xmp> e.g. <text style="color:rgb(31,142,213);">https://c.ap2.visual.force.com</text>.
+					</p>
+				</div>
+				<img style="max-width:100%;" src="images/install31.png" />
+				<div class="description titleMarg">
+					<p>4. On Heroku side create a mapping for the settings objects</p>
+				</div>
+				<div class="description" style="padding-top:0;">
+					<p>4.1	Map cadarch__Archiving_Setting__c object</p>
+					<p>Click Create Mapping.<br/>
+					Select the cadarch__Archiving_Setting__c object and check all fields<br/>
+					In the Salesforce -> Database section, select the <b>Listen for updates using the Streaming API</b> option.<br/>Click Save.
+					</p>
+				</div>
+				<img style="max-width:100%;" src="images/install41.png" />
+				<div class="description titleMarg">
+					<p>4.2	Analogically map cadarch__Archive_Plan__c object, checking all the fields</p>
+				</div>
+				<img style="max-width:100%;" src="images/install42.png" />
+				<div class="description titleMarg">
+					<p>4.3	If you do not setup the <a href="https://na22.salesforce.com/a0E1500000R2uYr?setupid=CustomSettings">AUTH_TOKEN</a> setting (2.3), you need to create a mapping for all the objects you would like to archive.</p>
+				</div>
+				<img style="max-width:100%;" src="images/install43.png" />
+				<div class="description titleMarg">
+					<p>5. Schedule the Archiving batch DataArchivingScheduler. You can also start the archiving process, by clicking the Run button on the Archiving Rules tab.</p>
+				</div>
+				<div class="description titleMarg">
+					<p>6. Add "Search Cadalys Data Archive" widget to the Home Page Layout.</p>
+				</div>
+				<img style="max-width:100%;" src="images/install6.png" />
+				<div class="description titleMarg">
+					<p>Now you are done! You can start archiving unused data out of Salesforce!</p>
+					<p>To make it possible to see the archived objects in Salesforce and unarchive them, please proceed with the next steps.</p>
+				</div>
+				<h2 class="title">Configure External Objects</h2>
+				<div class="description">
+					<p>To see the archived objects in Salesforce, External objects on Heroku Connect should be configured:</p>
+				</div>
+				<div class="description titleMarg">
+					<p>1. Create a support ticket in Heroku, asking to enable External objects for your installed Data Archive application.</p>
+				</div>
+				<div class="description titleMarg">
+					<p>2. When the ticket is processed, you will see a new tab External Objects. Click External Objects tab and click activate button</p>
+				</div>
+				<img style="max-width:100%;" src="images/configure2.png" />
+				<div class="description titleMarg">
+					<p>3. After activation, you will receive email with username and password for access to your External Objects.</p>
+				</div>
+				<img style="max-width:100%;" src="images/configure3.png" />
+				<div class="description titleMarg">
+					<p>4. After running the archiving batch, you get the archived objects in Heroku. In order to see these archived objects in Salesforce, you should mark them in the External Objects tab. Archived objects will have a prefix a__.</p>
+				</div>
+				<img style="max-width:100%;" src="images/configure4.png" />
+				<div class="description titleMarg">
+					<p>5. In Salesforce go to Develop->External Data Sources and Click New External Data Source and fill the fields in accordance to the External Objects settings (#3).</p>
+				</div>
+				<img style="max-width:100%;" src="images/configure5.png" />
+				<div class="description titleMarg">
+					<p>6. Click Validate and Sync, mark salesforce.a__* objects, click Sync</p>
+				</div>
+				<img style="max-width:100%;" src="images/configure6.png" />
+				<div class="description titleMarg">
+					<p>7. You can change the Label for the External Object, making it more user friendly. But DO NOT CHANGE the object name.</p>
+				</div>
+				<img style="max-width:100%;" src="images/configure7.png" />
+				<div class="description titleMarg">
+					<p>8. Create tabs for the external objects. Please note, that archived object search results will be visible for those users, who have access to the external object tabs.</p>
+				</div>
+				<div class="description titleMarg">
+					<p>9. Add the Unarchive button for any external object.<br/> 
+					Go to Develop->External Object and choose the object.<br/>
+					In the "Buttons, Links, and Actions" area, click New Button or Link
+					</p>
+				</div>
+				<img style="max-width:100%;" src="images/configure9.png" />
+				<div class="description titleMarg">
+					<p>Create the Unarchive button with the parameters shown below.<br/>
+					<u>>>Download Java Script<<</u> (<br/>
+					var sfId = window.sfdcPage.getEntityId().split('/');<br/>
+					var recId = sfId[sfId.length-1];<br/>
+					{!REQUIRESCRIPT("/soap/ajax/35.0/connection.js")}<br/>
+					{!REQUIRESCRIPT("/soap/ajax/35.0/apex.js")}<br/>
+					var myvar = sforce.apex.execute("cadarch.UnarchivePlanning","unarchive",{sourceId:recId});<br/>
+					window.alert(myvar); 
+					</p>
+				</div>
+				<img style="max-width:100%;" src="images/configure10.png" />
+				<h2 class="title">Additional Tips</h2>
+				<div class="description">
+					<p>1.	If you want to see the "Search Cadalys Data Archive" widget on all the pages, check <i>Show Custom Sidebar Components on All Pages</i> in User Interface settings</p>
+				</div>
+				<img style="max-width:100%;margin-bottom:70px;" src="images/tip.png" />
 			</div>
 		</div>
 		<div class="footer">

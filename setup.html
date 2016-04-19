@@ -48,6 +48,13 @@
 			.titleMarg{
 				padding-top:15px;
 			}
+			.githubImg{
+				background: url('images/github.png');
+			    background-size: auto 50px;
+			    background-repeat: no-repeat;
+			    height: 50px;
+			    width: 175px;
+			}
 		</style>
 	</head>
 	<body>
@@ -63,7 +70,7 @@
 			        <li><a href="setup.html">Setup</a></li>
 			    </ul>
 			    <ul class="nav navbar-nav navbar-right">
-			        <li><a target="_blank" href="https://github.com/Cadalys/CadalysDataArchive">Project on GitHub</a></li>
+			        <li><a target="_blank" class="githubImg" href="https://github.com/Cadalys/CadalysDataArchive"></a></li>
 			    </ul>
 			    </div>
 			</div>
@@ -122,31 +129,8 @@
 				<img style="max-width:100%;" src="images/install1.png" />
 				<img style="max-width:100%;" src="images/install11.png" />
 				<div class="description titleMarg">
-					<p>2. Fill all necessary custom settings on the Salesforce side Please fill the custom settings manually or use the script >>>Download script<<<.</p>
-					<p><i><xmp>Script</xmp></i></p>
-					<p><i><xmp>List<cadarch__Heroku_Connect_Setting__c> herokuSettings = new List<cadarch__Heroku_Connect_Setting__c> ();</xmp></i>
-					</p>
-					<p><i><xmp>herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'APP_NAME', cadarch__Text_Value__c = 'chas-test'));</xmp></i>
-					</p>
-					<p><i><xmp>herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'AUTH_TOKEN', cadarch__Text_Value__c = '86299d86-4ec4-4e03-ac6f-5f43191b7f8e'));</xmp></i></p>
-					<p><i><xmp>herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'HEROKU_API_ENDPOINT', cadarch__Text_Value__c = 'https://api.heroku.com/'));</xmp></i></p>
-					<p><i><xmp>herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'HEROKU_CONNECT_ENDPOINT', cadarch__Text_Value__c = 'https://connect.heroku.com/api/v3'));</xmp></i></p>
-					<p><i><xmp>herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'SERVICE_TIMEOUT', cadarch__Integer_Value__c = 120000));</xmp></i></p>
-					<p><i><xmp>List<cadarch__Archiving_Setting__c> archivingSettings = new List<cadarch__Archiving_Setting__c> ();</xmp></i></p>
-				</div>
-				<div class="description" style="padding-top:5px;">
-					<p><i><xmp>archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'BATCH_SIZE', cadarch__Integer_Value__c = 200));</xmp></i></p>
-					<p><i><xmp>archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'MAX_LOG_ENTRIES', cadarch__Integer_Value__c = 10000));</xmp></i></p>
-					<p><i><xmp>archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SCHEDULER_CRON', cadarch__Text_Value__c = '0 1 * * * *'));</xmp></i></p>
-					<p><i><xmp>archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SERVICE_ENDPOINT', cadarch__Text_Value__c = 'https://chas-test.herokuapp.com/'));</xmp></i></p>
-					<p><i><xmp>archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SERVICE_N_RETRIES', cadarch__Integer_Value__c = 2));</xmp></i></p>
-					<p><i><xmp>archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SERVICE_PASSWORD', cadarch__Text_Value__c = 'demopass'));</xmp></i></p>
-					<p><i><xmp>archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SERVICE_TIMEOUT', cadarch__Integer_Value__c = 120000));</xmp></i></p>
-					<p><i><xmp>archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SERVICE_USER', cadarch__Text_Value__c = 'archive.service@cadalys.demo'));</xmp></i></p>
-				</div>
-				<div class="description" style="padding-top:5px;">
-					<p><i><xmp>insert herokuSettings;</xmp></i></p>
-					<p><i><xmp>insert archivingSettings;</xmp></i></p>
+					<p>2. Fill all necessary custom settings on the Salesforce side Please fill the custom settings manually or use the script <a href="#">>>>Download script<<<</a>.</p>
+					
 				</div>
 				<div class="description titleMarg">
 					<p>2.1 Custom Setting: <b>Archiving Setting</b></p>

@@ -34,6 +34,7 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.Equator;
 import org.apache.ddlutils.Platform;
 import org.apache.ddlutils.PlatformFactory;
+import org.apache.ddlutils.PlatformInfo;
 import org.apache.ddlutils.model.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,6 +110,13 @@ public class ArchiveService {
 
         try (final Connection connection = dataSource.getConnection()) {
             final Platform platformInstance = PlatformFactory.createNewPlatformInstance(dataSource);
+            final PlatformInfo platformInfo = platformInstance.getPlatformInfo();
+            platformInfo.setMaxColumnNameLength(100);
+            platformInfo.setMaxConstraintNameLength(100);
+            platformInfo.setMaxForeignKeyNameLength(100);
+            platformInfo.setMaxIdentifierLength(100);
+            platformInfo.setMaxTableNameLength(100);
+
             final Database database = platformInstance.readModelFromDatabase(DataSourceConfiguration.SCHEMA_NAME,
                     false);
             final Table[] tables = database.getTables();

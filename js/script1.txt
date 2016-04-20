@@ -1,0 +1,20 @@
+List<cadarch__Heroku_Connect_Setting__c> herokuSettings = new List<cadarch__Heroku_Connect_Setting__c> ();
+herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'APP_NAME', cadarch__Text_Value__c = 'chas-test'));
+herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'AUTH_TOKEN', cadarch__Text_Value__c = 'enter your auth_token here'));
+herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'HEROKU_API_ENDPOINT', cadarch__Text_Value__c = 'https://api.heroku.com/'));
+herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'HEROKU_CONNECT_ENDPOINT', cadarch__Text_Value__c = 'https://connect.heroku.com/api/v3'));
+herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'SERVICE_TIMEOUT', cadarch__Integer_Value__c = 120000));
+herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'DELETE_PAUSE', cadarch__Integer_Value__c =300 ));
+List<cadarch__Archiving_Setting__c> archivingSettings = new List<cadarch__Archiving_Setting__c> ();
+
+archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'BATCH_SIZE', cadarch__Integer_Value__c = 200));
+archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'MAX_LOG_ENTRIES', cadarch__Integer_Value__c = 10000));
+archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SCHEDULER_CRON', cadarch__Text_Value__c = '0 1 * * * *'));
+archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SERVICE_ENDPOINT', cadarch__Text_Value__c = 'https://YourAppNameHere.herokuapp.com/'));
+archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SERVICE_N_RETRIES', cadarch__Integer_Value__c = 2));
+archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SERVICE_PASSWORD', cadarch__Text_Value__c = 'EnterYourPassword'));
+archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SERVICE_TIMEOUT', cadarch__Integer_Value__c = 120000));
+archivingSettings.add(new cadarch__Archiving_Setting__c(Name = 'SERVICE_USER', cadarch__Text_Value__c = ' EnterYourUsername@cadalys.demo'));
+
+insert herokuSettings;
+insert archivingSettings;

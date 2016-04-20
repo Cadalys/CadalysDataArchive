@@ -1,0 +1,6 @@
+var sfId = window.sfdcPage.getEntityId().split('/');
+var recId = sfId[sfId.length-1];
+{!REQUIRESCRIPT("/soap/ajax/35.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/35.0/apex.js")}
+var myvar = sforce.apex.execute("cadarch.UnarchivePlanning","unarchive",{sourceId:recId});
+window.alert(myvar); 

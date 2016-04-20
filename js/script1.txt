@@ -1,5 +1,5 @@
 List<cadarch__Heroku_Connect_Setting__c> herokuSettings = new List<cadarch__Heroku_Connect_Setting__c> ();
-herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'APP_NAME', cadarch__Text_Value__c = 'chas-test'));
+herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'APP_NAME', cadarch__Text_Value__c = 'YourAppNameHere'));
 herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'AUTH_TOKEN', cadarch__Text_Value__c = 'enter your auth_token here'));
 herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'HEROKU_API_ENDPOINT', cadarch__Text_Value__c = 'https://api.heroku.com/'));
 herokuSettings.add(new cadarch__Heroku_Connect_Setting__c(Name = 'HEROKU_CONNECT_ENDPOINT', cadarch__Text_Value__c = 'https://connect.heroku.com/api/v3'));

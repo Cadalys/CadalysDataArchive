@@ -40,10 +40,10 @@
 			}
 			h2.title{
 				text-align: left;
-			    font-size: 20px;
+			    font-size: 22px;
 			    font-weight: 400;
 			    margin-bottom:-15px;
-			    color:#2e74cf;
+			    color:rgb(0,132,20);
 			}
 			.titleMarg{
 				padding-top:15px;
@@ -82,6 +82,7 @@
 				<div class="description">
 					<p>Cadalys Data Archive&#8482; is a powerful and robust data archiving application enabling enterprises to improve performance and storage utilization by archiving older unused data out of Salesforce. The application supports both standard and custom objects, and lets you define archiving rules based on any criteria. You can also unarchive records that you need to have back in Salesforce. </p>
 					<p>To setup the application, please follow the instructions below. Cadalys is also available to help you to install the solution.</p>
+					<img style="max-width:100%;" src="images/tip1.png" />
 				</div>
 				<h2 class="title">Install the Heroku App</h2>
 				<div class="description">
@@ -119,13 +120,13 @@
 				<img style="max-width:100%;" src="images/setup7.png" />
 				<h2 class="title">Install the Salesforce package</h2>
 				<div class="description">
-					<p>1. Install the Salesforce package by clicking the "install" button.</p>
+					<p>1. Install the Salesforce package by clicking the <b>following</b> button.</p>
 					<a href="#" class="btnSalesforce" style="margin-bottom:15px;"><span>Deploy Salesforce components</span></a>
 				</div>
 				<img style="max-width:100%;" src="images/install1.png" />
 				<img style="max-width:100%;" src="images/install11.png" />
 				<div class="description titleMarg">
-					<p>2. Populate the "Archiving Setting" and "Heroku Connect Setting" Custom Setting in Salesforce.<br/> You can fill out the custom settings manually or run the following script in the Developer Console. You can also download this script here:<br/><a href="js/script1.txt" download>>>>Download script<<<</a></p>
+					<p>2. Populate the "Archiving Setting" and "Heroku Connect Setting" Custom Setting in Salesforce.<br/> You can fill out the custom settings manually or run the following script in the Developer Console. You can download this script here:<br/><a href="js/script1.txt" download>>>>Download script<<<</a></p>
 					<p>
 						Please note, that some of the parameters should be filled with your specific values:<br/> 
 						"Heroku Connect Setting": 'APP_NAME', 'AUTH_TOKEN'<br/>
@@ -192,6 +193,7 @@
 				<div class="description titleMarg">
 					<p>5. Schedule the Archiving batch StartArchivingScheduler in Salesforce. You can also start the archiving process, by clicking the Run button on the Archiving Rules tab.</p>
 				</div>
+				<img style="max-width:100%;" src="images/install5.png" />
 				<div class="description titleMarg">
 					<p>6. Add the "Search Cadalys Data Archive" widget to the Home Page Layout by going to Setup | Customize | Home | Home Page Layouts.</p>
 				</div>
@@ -212,7 +214,7 @@
 					<p>1. Create a support ticket in Heroku, asking to enable External objects for your installed Cadalys Data Archive application.</p>
 				</div>
 				<div class="description titleMarg">
-					<p>2. When the ticket is processed, you will see a new tab named External Objects. Click the External Objects tab and click the "Activate" button</p>
+					<p>2. When the ticket is processed, you will see a new tab named External Objects. Click the External Objects tab and click the "Activate" button.</p>
 				</div>
 				<img style="max-width:100%;" src="images/configure2.png" />
 				<div class="description titleMarg">
@@ -232,7 +234,8 @@
 				</div>
 				<img style="max-width:100%;" src="images/configure6.png" />
 				<div class="description titleMarg">
-					<p>7. You can change the Label for the External Object in order to make it more user friendly, but you must not change the Object Name. Changing the Object Name will cause the archiving process to function incorrectly.</p>
+					<p>7.</p>
+					<img style="max-width:100%;" src="images/tip2.png" />	
 				</div>
 				<img style="max-width:100%;" src="images/configure7.png" />
 				<div class="description titleMarg">
@@ -244,7 +247,7 @@
 				</div>
 				<div class="description titleMarg">
 					<p>10.	Add the Unarchive button to the Page Layout for any external object that you want users to be able to unarchive.<br/> 
-					Go to Setup | Develop -> | External Object and choose the object.<br/>
+					Go to Setup | Develop | External Object and choose the object.<br/>
 					In the "Buttons, Links, and Actions" area, click the "New Button or Link" button.
 					</p>
 				</div>

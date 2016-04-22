@@ -179,7 +179,17 @@
 					<p>2.2 Manual setup of the Custom Setting: <b>Heroku Connect Setting</b></p>
 				</div>
 				<img style="max-width:100%;" src="images/install23.png" />
-				<img style="max-width:100%;" src="images/install24.png" />
+				<!--<img style="max-width:100%;" src="images/install24.png" />-->
+				<table>
+					<tr class="tableHead"><td><span>Name</span></td><td><span>Text Value</span></td><td align="right"><span>Integer Value</span></td></tr>
+					<tr><td><span>APP_NAME</span></td><td>YourAppName<br/>e.g. CadalysDataArchive
+					</td><td align="right"></td></tr>
+					<tr><td><span>AUTH_TOKEN</span></td><td></td><td align="right"></td></tr>
+					<tr><td><span>HEROKU_API_ENDPOINT</span></td><td>https://api.heroku.com</td><td align="right"></td></tr>
+					<tr><td><span>HEROKU_CONNECT_ENDPOINT</span></td><td>https://connect.heroku.com/api/v3</td><td align="right"></td></tr>
+					<tr><td><span>SERVICE_TIMEOUT</span></td><td></td><td align="right">120,000</td></tr>
+					
+				</table>
 				<div class="description titleMarg">
 					<p>2.3 Manual setup of the Custom Setting: <b>Heroku Connect Setting.AUTH_TOKEN</b></p>
 				</div>
@@ -198,7 +208,12 @@
 					<p>3. Set up the Remote Site Details</p>
 				</div>
 				<div class="description" style="padding-top:0;">
-					<p>3.1 Create new <a href="https://ap2.salesforce.com/0rp?spl1=1&setupid=SecurityRemoteProxy&retURL=%2Fui%2Fsetup%2FSetup%3Fsetupid%3DSecurity">Remote Site Settings</a> for the Heroku services  under Setup | App Setup | Develop | Remote Access.</p>
+					<!--<p>3.1 Create new <a href="https://ap2.salesforce.com/0rp?spl1=1&setupid=SecurityRemoteProxy&retURL=%2Fui%2Fsetup%2FSetup%3Fsetupid%3DSecurity">Remote Site Settings</a> for the Heroku services  under Setup | App Setup | Develop | Remote Access.</p>-->
+					<p>
+						Create new Remote Site Settings for the Heroku services under Setup | App Setup | Develop | Remote Access.<br/>
+						Remote Site Name – any name<br/>
+						Remote Site URL – <a href="https://PutYourAppName.herokuapp.com">https://PutYourAppName.herokuapp.com</a>
+					</p>
 				</div>
 				<img style="max-width:100%;" src="images/install31.png" />
 				<div class="description titleMarg">

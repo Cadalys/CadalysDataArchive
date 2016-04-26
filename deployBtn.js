@@ -1,2 +1,2 @@
 var deployBtnLocation = "https://heroku.com/deploy?template=https://github.com/Cadalys/CadalysDataArchive";
-var deploySFLocation = "https://login.salesforce.com/packaging/installPackage.apexp?p0=04t15000000pJ1D";//Replace here
+var deploySFLocation = "https://login.salesforce.com/packaging/installPackage.apexp?p0=04t15000000pJ1w";//Replace here

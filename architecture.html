@@ -71,7 +71,7 @@
 			<div class="container center">
 				<h1 class="title">Architecture</h1>
 				<div class="description">
-					<p>Cadalys Data Archive&#8482; application is built on Salesforce and Heroku platforms, leveraging the Heroku Connect solution to achieve bi-directional synchronization, and Lightning Connect to access the archived data in the Salesforce.</p>
+					<p>Cadalys Data Archive&#8482; application is built on Salesforce and Heroku platforms, leveraging the Heroku Connect solution to achieve bi-directional synchronization, and Salesforce Connect to access the archived data in the Salesforce.</p>
 					<p>Below is the complete architecture diagram of the Cadalys Data Archive&#8482; application.</p>
 				</div>
 				<img style="width:100%;" src="images/architect.png" />
@@ -91,14 +91,14 @@
 					<p style="margin-top:20px;">Additional Java services are implemented on the Heroku side. Archive Java services are responsible for creation of the archiving tables and custom triggers. Search Java services provide the Search results within the archived tables using the PostgreSQL full text search engine.</p>
 				</div>
 				<div class="description" style="margin-bottom:70px;">
-					<p class="platform_title"><img style="width:120px;height:auto;margin-right:15px;" src="images/lightning.png" /> Salesforce Lightning Connect</p>
-					<p style="margin-top:-30px;">Cadalys Data Archive&#8482; uses Lightning Connect to display the archived data in the Salesforce UI. Archived objects are represented as Heroku External objects. Lightning Connect provide Salesforce Administrators with possibility to configure the archived objects layouts and related lists in the same way they do that for standard Salesforce objects.</p>
+					<p class="platform_title"><img style="width:120px;height:auto;margin-right:15px;" src="images/lightning.png" /> Salesforce Connect</p>
+					<p style="margin-top:-30px;">Cadalys Data Archive&#8482; uses Salesforce Connect to display the archived data in the Salesforce UI. Archived objects are represented as Heroku External objects. Salesforce Connect provides Salesforce Administrators the possibility to configure the archived objects layouts and related lists in the same way they do that for standard Salesforce objects.</p>
 				</div>
 			</div>
 		</div>
 		<div class="footer">
 			<div class="container">
-				<p>© 2016 Cadalys Data Archive. Heroku and Salesforce are trademarks of salesforce.com, inc.</p>
+				<p>© 2016 Cadalys, Inc. Heroku and Salesforce are trademarks of salesforce.com, inc.</p>
 			</div>
 		</div>
 	</body>

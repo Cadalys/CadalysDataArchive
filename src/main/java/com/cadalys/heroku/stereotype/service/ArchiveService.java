@@ -36,7 +36,8 @@ import org.apache.ddlutils.Platform;
 import org.apache.ddlutils.PlatformFactory;
 import org.apache.ddlutils.PlatformInfo;
 import org.apache.ddlutils.model.*;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cadalys.heroku.utils.DBUtils;
@@ -54,7 +55,6 @@ public class ArchiveService {
     public static final String PARENT_EXT_ID_1_COLUMN = "ParentExtID1";
     public static final String PARENT_EXT_ID_2_COLUMN = "ParentExtID2";
     public static final String PARENT_EXT_ID_3_COLUMN = "ParentExtID3";
-    private static final Logger LOGGER = Logger.getLogger(ArchiveService.class);
     private static final String ATTACHMENT_TABLE_NAME = "attachment";
 
     private static final String SFID = "sfid";
@@ -62,6 +62,8 @@ public class ArchiveService {
     private static final String SQL_SPACE = " ";
 
     private final CloneHelper cloneHelper = new CloneHelper();
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private DataSource dataSource;
@@ -84,10 +86,11 @@ public class ArchiveService {
             for (String objectName : objects.getObjects()) {
                 try {
                     String sql = DBUtils.deleteTriggerStatement(DataSourceConfiguration.SCHEMA_NAME, objectName);
-                    LOGGER.info(sql);
+                    logger.info(sql);
                     connection.createStatement().execute(sql);
                     connection.commit();
                 } catch (Exception e) {
+                    logger.error("Error archiving object to database", e);
                     errors.add(e.getMessage());
                 }
             }
@@ -126,10 +129,11 @@ public class ArchiveService {
                 try {
                     String sql = handleTableChanges(platformInstance, database, tables, object.getChildObj(),
                             object.getParentObj(), object.getRefField());
-                    LOGGER.info(sql);
+                    logger.info(sql);
                     connection.createStatement().execute(sql);
                     connection.commit();
                 } catch (Exception e) {
+                    logger.error("Error archiving object to the database", e);
                     errors.add(e.getMessage());
                 }
             }

@@ -150,9 +150,10 @@ public class PostgresFtsSearchService implements FtsSearchService {
                 .append(tableDescr.get(Field.NAME))
                 .append(" WHERE to_tsvector('").append(ftsConfig).append("',").append(tsvect).append(") ")
                 .append("@@ ")
-                .append("plainto_tsquery('")
+//                .append("plainto_tsquery('")
+                .append("to_tsquery('") // using to_tsquery to allow partial matches, see CADALYSAHC-284
                 .append(request.get(Field.QUERY))
-                .append("')");
+                .append(":*')");
 
         if ( request.containsKey(Field.ORDERBY)) {
             sb.append(" ORDER BY ").append(request.get(Field.ORDERBY));

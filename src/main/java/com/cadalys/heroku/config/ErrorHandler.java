@@ -26,7 +26,9 @@
 package com.cadalys.heroku.config;
 
 import com.cadalys.heroku.exception.ArchiveException;
-import org.apache.log4j.Logger;
+import com.cadalys.heroku.exception.ArchiveStatusException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -38,13 +40,20 @@ import com.cadalys.heroku.exception.ErrorsResponseBean;
 @ControllerAdvice
 public class ErrorHandler {
 
-    private static final Logger LOGGER = Logger.getLogger(ErrorHandler.class);
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 
     @ResponseBody
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(ArchiveException.class)
     public ErrorsResponseBean handleArchiveException(ArchiveException e) {
+        return handleException(e);
+    }
+
+    @ResponseBody
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(ArchiveStatusException.class)
+    public ErrorsResponseBean handleArchiveStatusException(ArchiveStatusException e) {
         return handleException(e);
     }
 
@@ -64,9 +73,11 @@ public class ErrorHandler {
     }
 
     private ErrorsResponseBean handleException(Exception e) {
-        LOGGER.warn(e.getMessage(), e);
+        logger.warn(e.getMessage(), e);
         if (e instanceof ArchiveException) {
             return new ErrorsResponseBean(((ArchiveException) e).getErrors());
+        } else if (e instanceof ArchiveStatusException) {
+            return new ErrorsResponseBean(((ArchiveStatusException) e).getErrors());
         } else {
             String message = e.getMessage();
             if (e.getLocalizedMessage() != null) {

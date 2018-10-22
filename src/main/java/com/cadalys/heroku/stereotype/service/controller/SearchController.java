@@ -64,39 +64,43 @@ public class SearchController {
      * Service to be used as a proxy to retrieve results of the FTS search on a single table
      * within the configured Postgres database.
      *
-     * @param body - message to be used to create FTS search statement. <br>
-     *             Format Sample:<br>
+     * @param body - message to be used to create FTS search statement. <br/>
+     *             Body format sample:<br/>
      * <pre>
-     *   {"table”:{
-     *      "name”:"products”,
-     *       "columns":[
-     *            {"name”:”product_name”, "selectable”:true, "tsvectorinclude”:true },
-     *            {"name”:”description”, "selectable”:false, "tsvectorinclude”:true},
-     *            {"name”:”product_id”, "selectable”:true, "tsvectorinclude”:false}
-     *       ],
-     *       "query”:”i am looking for good product which uses GSM”,
-     *       "configuration”:”english”
-     *   }
+     *  {@code {
+     *  "table":{
+     *    "name":"salesforce.a__account",
+     *    "columns":[
+     *      {"name":"name","selectable":true,"tsinclude":true},
+     *      {"name":"accountnumber","selectable":true,"tsinclude":false}
+     *    ]},
+     *    "query":"GenePoint",
+     *    "configuration":"english"
+     *}
+     *  }
      * </pre>
-     * @return - result of the FTS search or error. <br>
+     * @return - result of the FTS search or error. <br/>
      * Sample of the successfull response:
      * <pre>
-     *    {"result":{
+     * {@code {
+     *    "result":{
      *      "sqlstatement":"SELECT id, product_name FROM products WHERE to_tsvector(\u0027english\u0027,coalesce(description,\u0027\u0027) || \u0027 \u0027 || co
      *      alesce(product_name,\u0027\u0027)) @@ plainto_tsquery(\u0027need to connect\u0027)",
      *      "records":[{  "id":33,"product_name":"Genesys Connect for Service Cloud" }],
      *      "javatimemls":1560
      *    },
      *    "error":false
-     *    }
+     *}
+     * }
      * </pre>
      *
      * Sample of the failed request
      * <pre>
-     *  {
+     * {@code {
      *      "error_message":"StatementCallback; bad SQL grammar [SELECT idb, product_name FROM products WHERE to_tsvec.....)]; nested exception is org.postgresql.util.PSQLException: ERROR: column \"idb\" does not exist\n  Position: 8",
      *      "error":true
-     *  }
+     *}
+     * }
      * </pre>
      */
     @RequestMapping(value = "search", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
